@@ -2,7 +2,7 @@ package goutils
 
 import "sync"
 
-func MergeChannels[T any](cs ...<-chan T) <-chan T {
+func MergeChannels[T any](cs ...chan T) chan T {
 	var wg sync.WaitGroup
 	out := make(chan T)
 
