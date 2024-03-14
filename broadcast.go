@@ -48,5 +48,4 @@ func (b *Broadcast) Shutdown() {
 	for _, subscriber := range b.Subscribers {
 		close(subscriber)
 	}
-	b = nil
 }

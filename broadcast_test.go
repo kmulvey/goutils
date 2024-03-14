@@ -7,6 +7,8 @@ import (
 )
 
 func TestUnsubscribe(t *testing.T) {
+	t.Parallel()
+
 	var broadcast = NewBroadcast()
 	var subscriberOne = broadcast.Subscribe()
 	_ = broadcast.Subscribe()
@@ -15,6 +17,8 @@ func TestUnsubscribe(t *testing.T) {
 }
 
 func TestBroadcast(t *testing.T) {
+	t.Parallel()
+
 	var broadcast = NewBroadcast()
 	var subscriberOne = broadcast.Subscribe()
 	var subscriberTwo = broadcast.Subscribe()
