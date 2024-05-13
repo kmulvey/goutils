@@ -1,4 +1,4 @@
-name: goutils
+name: Build
 
 on: push
 
