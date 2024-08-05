@@ -15,7 +15,7 @@ func (b *Broadcast) Subscribe() chan any {
 	b.Lock.Lock()
 	defer b.Lock.Unlock()
 
-	var subscriber = make(chan any)
+	var subscriber = make(chan any, 1000) // buffered so slow consumers dont block the others
 	b.Subscribers = append(b.Subscribers, subscriber)
 	return subscriber
 }
