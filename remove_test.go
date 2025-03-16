@@ -10,22 +10,22 @@ func TestRemoveElementFromArray(t *testing.T) {
 	t.Parallel()
 
 	var testArr = make([]int, 10)
-	for i := 0; i < 10; i++ {
+	for i := range 10 {
 		testArr[i] = i
 	}
 
 	testArr = RemoveElementFromArray(testArr, 5)
-	assert.Equal(t, 9, len(testArr))
-	for i := 0; i < 9; i++ {
-		assert.False(t, testArr[i] == 5)
+	assert.Len(t, testArr, 9)
+	for i := range 9 {
+		assert.NotEqual(t, 5, testArr[i])
 	}
 
 	testArr = RemoveElementFromArray(testArr, 1)
-	assert.Equal(t, 8, len(testArr))
-	for i := 0; i < 8; i++ {
-		assert.False(t, testArr[i] == 1)
+	assert.Len(t, testArr, 8)
+	for i := range 8 {
+		assert.NotEqual(t, 1, testArr[i])
 	}
 
 	testArr = RemoveElementFromArray(testArr, 10)
-	assert.Equal(t, 8, len(testArr))
+	assert.Len(t, testArr, 8)
 }

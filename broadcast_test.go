@@ -13,7 +13,7 @@ func TestUnsubscribe(t *testing.T) {
 	var subscriberOne = broadcast.Subscribe()
 	_ = broadcast.Subscribe()
 	broadcast.Unsubscribe(subscriberOne)
-	assert.Equal(t, 1, len(broadcast.Subscribers))
+	assert.Len(t, broadcast.Subscribers, 1)
 }
 
 func TestBroadcast(t *testing.T) {

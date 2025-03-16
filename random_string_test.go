@@ -11,25 +11,25 @@ func TestRandomString(t *testing.T) {
 	t.Parallel()
 
 	var a = RandomString(10)
-	assert.Equal(t, 10, len(a))
+	assert.Len(t, a, 10)
 
 	var b = RandomString(10)
-	assert.Equal(t, 10, len(a))
+	assert.Len(t, a, 10)
 
 	assert.NotEqual(t, a, b)
 }
 
-// make sure there is no data race
+// make sure there is no data race.
 func TestRandomStringParallel(t *testing.T) {
 	t.Parallel()
 
 	var wg sync.WaitGroup
-	for i := 0; i < 50; i++ {
+	for range 50 {
 		wg.Add(1)
 		go func(wg *sync.WaitGroup) {
-			for i := 0; i < 1000; i++ {
+			for range 1000 {
 				var a = RandomString(10)
-				assert.Equal(t, 10, len(a))
+				assert.Len(t, a, 10)
 			}
 			wg.Done()
 		}(&wg)

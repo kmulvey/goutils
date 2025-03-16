@@ -27,5 +27,5 @@ func TestMergeChannels(t *testing.T) {
 	for val := range MergeChannels(chans...) {
 		delete(expected, val)
 	}
-	assert.Equal(t, 0, len(expected))
+	assert.Empty(t, expected)
 }
