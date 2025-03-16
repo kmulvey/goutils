@@ -17,7 +17,7 @@ func TestRandomString(t *testing.T) {
 	var b = RandomString(10)
 	assert.Len(t, b, 10)
 
-	fmt.Printf("a: %s\nb: %s\n", a, b)
+	fmt.Printf("a: %s\nb: %s\n", a, b) // nolint:forbidigo
 	assert.NotEqual(t, a, b)
 }
 
